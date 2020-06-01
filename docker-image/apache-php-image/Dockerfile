@@ -1,2 +1,2 @@
-FROM php:5.6-apache
-COPY content/ /var/www/html/
+FROM php:7.2-apache
+COPY src/ /var/www/html/
