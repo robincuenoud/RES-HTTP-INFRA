@@ -5,7 +5,7 @@
 
 
 # Table des matières
-1. [Step 1 - Apache Static)](#s1)
+1. [Step 1 - Apache Static](#s1)
 2. [Step 2 - Dynamic](#s2)
 3. [Step 3 - Reverse Proxy with Apache](#s3)
 4. [Step 4 - AJAX request with Jquery](#s4)
