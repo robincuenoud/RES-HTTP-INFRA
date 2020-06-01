@@ -35,11 +35,11 @@ Pour vérifier que le container s’est bien lancé on peut regarder `docker log
 
 on obtient par exemple : 
 
-![image-20200601123416612](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/1.1)
+![image-20200601123416612](images/1.1)
 
 On peut aussi vérifier que on y à bien accès avec `telnet 192.168.1.100 9090` ce qui nous renvoie cela :
 
-![image-20200601123822152](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/1.2)
+![image-20200601123822152](images/1.2)
 
 (erreur 403) Ce qui est normal car il y’a rien encore dans notre serveur apache.
 
