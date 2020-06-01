@@ -93,6 +93,10 @@ tout fonctionne a présent.
 
 ```
 #debut d'append ====
+<p id="AnimalsToUpdate"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
+[...]
+
 <!--Custom script to load animaux-->
 <script src="js/animals.js"></script>
 
@@ -115,17 +119,20 @@ $(function() { //mets à jour periodiquement les animaux avec AJAX
                 
                         console.log(animals);
                         var message = "Nobody is here";
-                        $("#teamTextToChange").text(message);
+                        if(animals.length > 0){
+                        	message = animals[0].animal()
+                        }
+                        $("#AnimalsToUpdate").text(message); //changer la valeur de cet ID par le nouveau message.
                 });
         };
         
-        // Text is changed every 5 seconds
-        setInterval(loadAnimals, 5000);    
-
+        loadAnimals();
+        // ici on peut regler le taux de rafraichissement
+        setInterval(loadAnimals, 2000);    //toutes les 2s on re execute
 });
 ```
 
 
 
-
+* Une fois ces modifications faites, il faudra faire ces modif précedentes dans notre l'image docker de apache-php, puis build et run. [donc dans docker-images/apache-php-image/content index.html et /js/animals.js]
 
