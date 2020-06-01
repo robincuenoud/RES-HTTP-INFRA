@@ -141,3 +141,23 @@ RUN a2ensite 000-default.conf 001-reverse-proxy.conf
 * Pour run le container:
 
 `docker run res/apache-RP`
+
+
+
+### Questions
+
+> You can explain and prove that the static and dynamic servers cannot be reached directly (reverse proxy is a single entry point in the infra).
+
+The static and dynamic servers can't be reached because there is no port-mapping for them to allow connection from the outside.
+
+*  **TODO** proof
+
+>You are able to explain why the static configuration is fragile and needs to be improved.
+
+With the static configuration, we hardcoded the IPs of the containers. So if we restart them not in the same order, or with other containers running, the IP won't be the same and the conf won't work. So it's very error-prone, and because of that, the reverse proxy may not work sometimes when we reload all.
+
+
+
+### Démo 
+
+On a notre script pour la démonstration dans `docker-images/apache-reverse-proxy/run.sh`
