@@ -501,7 +501,7 @@ or ici les requêtes viennent de deux serveurs séparés, ça ne devrait pas fon
 
 * grâce au flag `-e` on peut passer des variables d’environnement ,essai avec `docker run -e CHEVAL=cheval -e ANE=ANE -it res/apache-rp /bin/bash` (on le lance avec un bash pour pouvoir vérifier directement). On voit ci dessous que le docker possède bien les variable d’environnements. 
 
-  ![image-20200601212717695](images/verif_dynamic_0)
+  ![image-20200601212717695](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/images/verif_dynamic_0)
 
   
 
@@ -529,7 +529,7 @@ Maintenant on test si on voit bien les echo dans le script executé :
 
 `/usr/local/bin/docker-php-entrypoint: 9: exec: apache2-foreground: not found` 
 
-On va regarder dans le container si le fichier a mal été copié :![image-20200601220722707](images/error_step5)
+On va regarder dans le container si le fichier a mal été copié :![image-20200601220722707](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/images/error_step5)
 
 Avec un `cat` on voit qu’il a bien le contenu de notre nouveau fichier. Le problème n’est pas là. Il a bien le flag executable (`ls -l` nous montre cela par exemple).
 
@@ -548,3 +548,25 @@ Ce serait bien trop simple, le script de booting linux ne trouve pas le fichier 
 On annule l’idée d’utiliser `bash` c’était pas brillant on imagine..  
 
 De toute manière si c’est juste pour `echo` des variables d’environnement pas besoin de perdre 4 heures. 
+
+
+
+On continue on crée le dossier `template` et le `conf-template.php`  et on doit juste trouver une façon d’executer 
+
+```
+php /var/apache2/templates/config-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
+a2ensite 000-* 001-*
+
+```
+
+avant l’appel à `exec apache2 -DFOREGROUND "$@"`
+
+Donc on ajoute au Dockerfile : 
+
+```
+RUN php /var/apache2/templates/conf-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
+```
+
+Et on prie , ca fonctionne pas le fichier exécute bien mais les ip ne sont pas mise a jour 
+
+![image-20200601233822063](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/images/yalaolol)
