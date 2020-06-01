@@ -5,15 +5,15 @@
 
 
 # Table des matières
-1. [Step 1](#RES - HTTP Infra - Step 1 - Apache Static)
-2. [Step 2](#RES HTTP Infra - Step 2 - Dynamic)
-3. [Step 3](#RES HTTP Infra - Step 3 - Reverse Proxy with Apache)
-4. [Step 4](#RES HTTP Infra - Step 4 - AJAX request with Jquery)
-5. [Step 5](#RES HTTP Infra - Step 5 - Dynamic reverse proxy configuration)
+1. [Step 1 - Apache Static)](#s1)
+2. [Step 2 - Dynamic](#s2)
+3. [Step 3 - Reverse Proxy with Apache](#s3)
+4. [Step 4 - AJAX request with Jquery](#s4)
+5. [Step 5 - Dynamic reverse proxy configuration](#s5)
 
 
 
-# RES - HTTP Infra - Step 1 - Apache Static
+# RES - HTTP Infra - Step 1 - Apache Static <a name="s1"></a>
 
 ## Image Docker
 
@@ -72,7 +72,7 @@ Et tadaa……..
 
 
 
-# RES HTTP Infra - Step 2 - Dynamic
+# RES HTTP Infra - Step 2 - Dynamic <a name="s2"></a>
 
 ## Node 
 
@@ -172,7 +172,7 @@ function generateAnimals() {
 
 
 
-# RES HTTP Infra - Step 3 - Reverse Proxy with Apache
+# RES HTTP Infra - Step 3 - Reverse Proxy with Apache <a name="s3"></a>
 
 
 
@@ -345,7 +345,7 @@ The static and dynamic servers can't be reached because there is no port-mapping
 
   ![image-20200601191546165](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/demo)
 
-# RES HTTP Infra - Step 4 - AJAX request with Jquery
+# RES HTTP Infra - Step 4 - AJAX request with Jquery <a name="s4"></a>
 
 
 
@@ -495,7 +495,7 @@ or ici les requêtes viennent de deux serveurs séparés, ça ne devrait pas fon
 
 
 
-# RES HTTP Infra - Step 5 - Dynamic reverse proxy configuration
+# RES HTTP Infra - Step 5 - Dynamic reverse proxy configuration <a name="s5"></a>
 
 #### Test de variables d’environnement aux containers
 
