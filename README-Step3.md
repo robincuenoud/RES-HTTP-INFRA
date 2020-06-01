@@ -150,7 +150,17 @@ RUN a2ensite 000-default.conf 001-reverse-proxy.conf
 
 The static and dynamic servers can't be reached because there is no port-mapping for them to allow connection from the outside.
 
-*  **TODO** proof
+On voit qu’on peut accéder a notre bootstrap à cette adresse : 
+
+![image-20200601191629311](images/demo0)
+
+Mais que si on veut directement acceder à un docker sans passer par le proxy on ne peut pas car il n’y  a simplement pas de port mapping vers l’extérieur dans le lancement de nos docker.
+
+Et si on ne précise pas host on a alors : 
+
+![image-20200601191932870](images/demo1)
+
+Ceci vient du fait que dans notre fichier de configuration par défaut il n’y a rien. (`000-default.conf`)
 
 >You are able to explain why the static configuration is fragile and needs to be improved.
 
@@ -161,3 +171,5 @@ With the static configuration, we hardcoded the IPs of the containers. So if we 
 ### Démo 
 
 On a notre script pour la démonstration dans `docker-images/apache-reverse-proxy/run.sh`
+
+![image-20200601191546165](images/demo)
