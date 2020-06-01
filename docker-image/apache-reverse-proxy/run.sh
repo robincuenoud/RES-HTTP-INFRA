@@ -9,7 +9,7 @@ docker build -t res/apache-php ../apache-php-image/
 ## expres dynamic
 docker build -t res/express-student-node ../express-image/node_with_express/
 ## RP
-docker build -t res/apache-RP
+docker build -t res/apache-rp .
 
 
 # Run images. ordre important pour IPs 
@@ -19,6 +19,5 @@ docker run --name apache_static -d res/apache-php
 docker run -d --name express_dynamic res/express-student-node         
 
 ## reverse-proxy
-docker run -p 9090:80 --name reverse_proxy -d res/apache-RP              
+docker run -p 8080:80 --name reverse_proxy -d res/apache-rp              
 
-## visit : http://192.168.99.100:9090/
