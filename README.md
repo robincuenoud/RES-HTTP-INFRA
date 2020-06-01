@@ -45,7 +45,7 @@ Note : On doit préciser la commande dans le Dockerfile ou bien au lancé du con
 
 Et voila un exemple d’execution on obtient bien le “Bonjour …..”.
 
-![image-20200601132433697](image-20200601132433697.png)
+![image-20200601132433697](images/1)
 
 ## Express
 
@@ -94,3 +94,7 @@ function generateAnimals() {
 * Build du container avec `docker build -t res/express-students-node .`
 
 * Lancement du container avec le port mapping avec la commande `docker run -p 3000:3000 -d res/express-students-node` 
+
+Et tadaaa (sur `http://192.168.99.100:3000/` (adresse de ma vm qui execute le docker) )
+
+![image-20200601141218408](images/2)
