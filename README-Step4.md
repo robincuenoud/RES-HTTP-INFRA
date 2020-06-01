@@ -92,17 +92,13 @@ tout fonctionne a présent.
 * Puis on modifie ce fichier, à la fin on append un script :
 
 ```
-#debut d'append ====
-<p id="AnimalsToUpdate"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+<!-- on remplace le texte de la balise h2 qu'il y'a juste après le titre principal on ajoute l'attribut id que pour que le script modifie cela-->
+<h2 id="AnimalsToUpdate" class="text-white-50 mx-auto mt-2 mb-5"></h2>
 
-[...]
-
-<!--Custom script to load animaux-->
+<!--animals script en bas de page par exemple (après body)-->
 <script src="js/animals.js"></script>
 
 
-# fin d'append ===
-</body>
 ```
 
 Avec ça on appelle notre script, mais il n'existe pas encore...
@@ -132,7 +128,7 @@ $(function() { //mets à jour periodiquement les animaux avec AJAX
 });
 ```
 
-
+![image-20200601202203061](images/proof_ajax)
 
 * Une fois ces modifications faites, il faudra faire ces modif précedentes dans notre l'image docker de apache-php, puis build et run. [donc dans docker-images/apache-php-image/content index.html et /js/animals.js]
 
