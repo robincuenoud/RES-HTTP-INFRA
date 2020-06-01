@@ -19,5 +19,8 @@ docker run --name apache_static -d res/apache-php
 docker run -d --name express_dynamic res/express-student-node         
 
 ## reverse-proxy
-docker run -p 8080:80 --name reverse_proxy -d res/apache-rp              
+docker run -p 8080:80 --name reverse_proxy -d res/apache-rp -e STATIC_APP=undefined -e DYNAMIC_APP=undefined             
+
+# on peut maintenant acceder a demo.res.ch pour le bootstrap 
+# et a demo.res.ch/api/animals/ pour recevoir la liste danimo
 
