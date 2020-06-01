@@ -110,8 +110,8 @@ La meme conf qui plus haut
   CustomLog ${APACHE_LOG_DIR}/access.log combined
   
   # voir la doc apache.org, proxy-mod
-  ProxyPass "/api/companies/" "http://172.17.0.3:3000/"
-  ProxyPassReverse "/api/companies/" "http://172.17.0.3:3000/"
+  ProxyPass "/api/animals/" "http://172.17.0.3:3000/"
+  ProxyPassReverse "/api/animals/" "http://172.17.0.3:3000/"
   
   ProxyPass "/" "http://172.17.0.2:80/"
     ProxyPassReverse "/" "http://172.17.0.2:80/"
