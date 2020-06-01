@@ -136,8 +136,8 @@ RUN a2ensite 000-default.conf 001-reverse-proxy.conf
 
 * les confs et le dockerfile sont prêts, on peut build:
 
-`docker build -t res/apache_RP . ` 
+`docker build -t res/apache-RP . ` 
 
 * Pour run le container:
 
-`docker run res/apache_RP`
+`docker run res/apache-RP`
