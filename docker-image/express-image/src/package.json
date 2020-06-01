@@ -1,0 +1,11 @@
+{
+  "name": "students",
+  "version": "0.1.0",
+  "description": "Just a boring lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
