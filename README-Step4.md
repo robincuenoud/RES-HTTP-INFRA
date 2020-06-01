@@ -1,14 +1,12 @@
 # Step 4: AJAX requests with JQuery
 
-### 
+On veut changer nos containers pour ajouter vim, il faut donc les arrêter:
 
-On veut changer nos containers pour ajouter vim, il faut donc les arreter:
+* On commence par arrêter les containers avec `docker kill xxxx`
 
-* On commence par arreter les containers avec `docker kill xxxx`
+* on les removes ensuite avec `docker rm $(docker ps -qa)`.
 
-* on les removes ensuites avec `docker rm $(docker ps -qa)`.
-
-### On revient sur les Dockerfile des 3 containers précedents pour ajouter VIM
+### On revient sur les Dockerfile des 3 containers précédents pour ajouter VIM
 
 
 
@@ -34,7 +32,7 @@ Il faut maintenant rebuild l'image
 
 ##### modif apache-reverse-proxy
 
-on ajoute la meme ligne que précedement, on obtient donc le Dockerfile suivant:
+on ajoute la même ligne que précédemment, on obtient donc le Dockerfile suivant:
 
 ```
 FROM php:7.2-apache
@@ -116,7 +114,7 @@ $(function() { //mets à jour periodiquement les animaux avec AJAX
                         console.log(animals);
                         var message = "Nobody is here";
                         if(animals.length > 0){
-                        	message = animals[0].animal()
+                        	message = animals[0].name + " from "+ animals[0].country
                         }
                         $("#AnimalsToUpdate").text(message); //changer la valeur de cet ID par le nouveau message.
                 });
@@ -128,7 +126,22 @@ $(function() { //mets à jour periodiquement les animaux avec AJAX
 });
 ```
 
+Avec le screenshot suivant, nous pouvons voir que les requêtes AJAX sont bien effectuées.  
+
 ![image-20200601202203061](images/proof_ajax)
 
-* Une fois ces modifications faites, il faudra faire ces modif précedentes dans notre l'image docker de apache-php, puis build et run. [donc dans docker-images/apache-php-image/content index.html et /js/animals.js]
 
+
+
+
+* Une fois ces modifications faites, il faudra faire ces mêmes modif précédentes dans notre l'image docker de apache-php, puis build et run. [donc dans docker-images/apache-php-image/content index.html et /js/animals.js]
+
+
+
+> You are able to explain why your demo would not work without a reverse proxy (because of a security restriction).
+
+La policy `Same Origin` , décrite dans le rapport step3, nous dit que: 
+
+>  "Under the policy, a web browser permits scripts contained in a first web page to access data in a second web page, but only if both web pages have the same origin."
+
+or ici les requêtes viennent de deux serveurs séparés, ça ne devrait pas fonctionner tout seul. A moins qu'on ait, comme là, un reverse proxy qui va donner juste un seul point d'entrée. Ainsi d'un point de vue extérieur de web browser, les requêtes ont la même origine et respectent donc la règle. Notre démo ne fonctionnerait donc pas sans proxy.
