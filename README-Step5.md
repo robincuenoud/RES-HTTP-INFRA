@@ -40,4 +40,15 @@ On run ensuite manuellement le script `docker-php-entrypoint` avec la commande
 
 ` ./docker-php-entrypoint -f` (a besoin d’un flag `-f`  pour passer dans la vérification du fichier) et effectivement ici le script ne trouve pas le fichier on obtient de nouveau `./docker-php-entrypoint: 9: exec: apache2-foreground: not found` 
 
-On va pas plus se compliquer la vie on va mettre les commandes directement dans le Dockerfile 
+Après quelques heures d’analyse en plus (heureusement qu’on a seulement 9 branches ce semestre d’ailleurs) on trouve un indice ! En exécutant manuellement le script `docker-php-entrypoint` dans un shell `bash` cela fonctionne très bien (il trouve le fichier) mais dans un script `sh` cela ne fonctionne pas. On va simplement remplacer le `docker-php-entrypoint` avec le notre qui comportera `#!bin/bash` en haut au lieu de `!#bin/sh`  et on le copie a la bonne place en espérant que le script qui l’appelle n’est pas exécuté en `sh` …… 
+
+Et ben non erreur ! 
+
+`standard_init_linux.go:211: exec user process caused "no such file or directory"`
+
+Ce serait bien trop simple, le script de booting linux ne trouve pas le fichier que j’ai mis maintenant, j’ai pas pire envie de réecrire Linux pour un labo d’un cours à 4 crédit donc je vais faire autrement (surtout pour avoir au max 4.5 :) ).
+
+On annule l’idée d’utiliser `bash` c’était pas brillant on imagine..  
+
+De toute manière si c’est juste pour `echo` des variables d’environnement pas besoin de perdre 4 heures. 
+
