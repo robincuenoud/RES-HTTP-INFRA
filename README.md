@@ -47,7 +47,7 @@ Pour explorer l’image on a besoin d’y accéder en mode interactif (obtenir u
 
 on peut utiliser la commande `docker exec -it <container_name> /bin/bash` pour obtenir un bash dedans et regarder la configuration qui se trouve dans `/etc/apache2` 
 
-![image-20200601124029756](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/1.31)
+![image-20200601124029756](images/1.31)
 
 ## Ajout de contenu à l’image
 
@@ -68,7 +68,7 @@ Note: J’ai personnalisé le contenu en modifiant les fichiers sources…..
 
 Et tadaa……..
 
-![image-20200601125053707](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/1.4)
+![image-20200601125053707](images/1.4)
 
 
 
@@ -323,13 +323,13 @@ The static and dynamic servers can't be reached because there is no port-mapping
 
 * On voit qu’on peut accéder a notre bootstrap à cette adresse : 
 
-  ![image-20200601191629311](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/demo0)
+  ![image-20200601191629311](images/demo0)
 
   Mais que si on veut directement acceder à un docker sans passer par le proxy on ne peut pas car il n’y  a simplement pas de port mapping vers l’extérieur dans le lancement de nos docker.
 
   Et si on ne précise pas host on a alors : 
 
-  ![image-20200601191932870](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/demo1)
+  ![image-20200601191932870](images/demo1)
 
   Ceci vient du fait que dans notre fichier de configuration par défaut il n’y a rien. (`000-default.conf`)
 
@@ -343,7 +343,7 @@ The static and dynamic servers can't be reached because there is no port-mapping
 
   On a notre script pour la démonstration dans `docker-images/apache-reverse-proxy/run.sh`
 
-  ![image-20200601191546165](C:/Users/FlorianMülhauser/Documents/HEIG-VD/BA4/RES/Labos/Labo-HTTPInfra/RES-HTTP-INFRA/images/demo)
+  ![image-20200601191546165](images/demo)
 
 # RES HTTP Infra - Step 4 - AJAX request with Jquery <a name="s4"></a>
 
