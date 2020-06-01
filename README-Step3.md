@@ -41,7 +41,7 @@ on cherche k'addresse IP du docker apache:
 
 pareil pour express_dynamic
 
-`docker inspect express_dynamic | grep -i ipaddress`
+`docker inspect express_dynamic | grep -i ipaddress` -> IP 172.17.0.3
 
 
 
@@ -68,8 +68,8 @@ On peut maintenant edit notre config de reverse-proxy:
   CustomLog ${APACHE_LOG_DIR}/access.log combined
   
   # voir la doc apache.org, proxy-mod
-  ProxyPass "/api/companies/" "http://172.17.0.3:3000/"
-  ProxyPassReverse "/api/companies/" "http://172.17.0.3:3000/"
+  ProxyPass "/api/animals/" "http://172.17.0.3:3000/"
+  ProxyPassReverse "/api/animals/" "http://172.17.0.3:3000/"
   
   ProxyPass "/" "http://172.17.0.2:80/"
     ProxyPassReverse "/" "http://172.17.0.2:80/"
@@ -136,11 +136,11 @@ RUN a2ensite 000-default.conf 001-reverse-proxy.conf
 
 * les confs et le dockerfile sont prêts, on peut build:
 
-`docker build -t res/apache-RP . ` 
+`docker build -t res/apache-rp . ` 
 
 * Pour run le container:
 
-`docker run res/apache-RP`
+`docker run res/apache-rp`
 
 
 
