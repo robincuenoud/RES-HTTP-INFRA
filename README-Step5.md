@@ -1,6 +1,6 @@
 ## Step 5 Dynamic reverse proxy configuration
 
-#### Test de variables d’environnement aux containers
+
 
 * grâce au flag `-e` on peut passer des variables d’environnement ,essai avec `docker run -e CHEVAL=cheval -e ANE=ANE -it res/apache-rp /bin/bash` (on le lance avec un bash pour pouvoir vérifier directement). On voit ci dessous que le docker possède bien les variable d’environnements. 
 
@@ -52,3 +52,24 @@ On annule l’idée d’utiliser `bash` c’était pas brillant on imagine..
 
 De toute manière si c’est juste pour `echo` des variables d’environnement pas besoin de perdre 4 heures. 
 
+
+
+On continue on crée le dossier `template` et le `conf-template.php`  et on doit juste trouver une façon d’executer 
+
+```
+php /var/apache2/templates/config-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
+a2ensite 000-* 001-*
+
+```
+
+avant l’appel à `exec apache2 -DFOREGROUND "$@"`
+
+Donc on ajoute au Dockerfile : 
+
+```
+RUN php /var/apache2/templates/conf-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
+```
+
+Et on prie , ca fonctionne pas le fichier exécute bien mais les ip ne sont pas mise a jour 
+
+![image-20200601233822063](images/yalaolol)
