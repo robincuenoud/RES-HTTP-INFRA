@@ -1,0 +1,2 @@
+#!bin/bash
+php /var/apache2/templates/conf-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
